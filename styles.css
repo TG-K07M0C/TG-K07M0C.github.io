@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Mistral';
+    src: url('fonts/Mistral-Regular.ttf') format('truetype'); /* Убедитесь, что путь к шрифту указан верно */
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -7,56 +12,24 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    flex-direction: column; /* Центрирование всех элементов */
+    font-family: 'Mistral', cursive; /* Применение шрифта к body */
 }
 
 #container {
     text-align: center;
 }
 
-#notebook {
-    position: relative; /* Устанавливаем относительное позиционирование для контейнера */
+#notebook-container {
+    position: relative;
 }
 
 #closedNotebook {
     width: 300px;
 }
 
-#openNotebook {
-    position: relative; /* Обеспечиваем относительное позиционирование для openNotebook */
-    display: flex;
-    justify-content: center; /* Центрируем содержимое по горизонтали */
-    align-items: center; /* Центрируем содержимое по вертикали */
-}
-
-#openNotebook img {
-    width: 500px;
-}
-
-.column {
-    display: flex; /* Используем Flexbox для горизонтального расположения */
-    flex-direction: column; /* Располагаем текст в столбик */
-    justify-content: center; /* Центрируем содержимое по вертикали */
-    align-items: center; /* Центрируем содержимое по горизонтали */
-    padding: 10px;
-    font-size: 10px;
-    position: absolute; /* Задаем абсолютное позиционирование для групп текста */
-    z-index: 1; /* Устанавливаем уровень наложения выше, чем у openNotebook */
-}
-
-#column1 {
-    top: 30%; /* Позиционирование вверх */
-    left: 50%; /* Центрируем по горизонтали */
-    transform: translate(-50%, -50%); /* Центрируем относительно середины */
-}
-
-#column2 {
-    top: 50%; /* Позиционирование немного ниже */
-    left: 50%; /* Центрируем по горизонтали */
-    transform: translate(-50%, -50%); /* Центрируем относительно середины */
-}
-
 button {
-    margin: 10px;
+    margin-top: 10px;
     padding: 10px 20px;
     background-color: green;
     color: white;
@@ -64,9 +37,46 @@ button {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    z-index: 2; /* Устанавливаем уровень наложения для кнопок выше текста */
 }
 
 button:hover {
     background-color: darkgreen;
+}
+
+#openNotebook {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#openNotebook img {
+    position: relative; /* Убедитесь, что это изображение находится на своем месте */
+    z-index: 1; /* Задаем z-index, чтобы фон был под текстом */
+}
+
+.column {
+    position: absolute; /* Текст будет накладываться на изображение */
+    text-align: center;
+    z-index: 2; /* Выше для наложения поверх изображения */
+    font-size: 128px !important; /* Размер шрифта увеличен, измените по вашему усмотрению */
+}
+
+#column1 {
+    top: 30%; /* Позиционируем колонку 1 */
+    left: 20%; /* Координаты слева */
+}
+
+#column2 {
+    top: 30%; /* Позиционируем колонку 2 */
+    right: 20%; /* Координаты справа */
+}
+
+.class {
+    font-size: 16px;
+}
+
+.strike-through {
+    text-decoration: line-through;
 }

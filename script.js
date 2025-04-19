@@ -1,44 +1,50 @@
-function hideButtons() {
-    document.getElementById('continueButton').style.display = 'none';
-    document.getElementById('finishButton').style.display = 'none';
-}
-
-document.getElementById('openButton').onclick = function() {
+document.getElementById('openButton').addEventListener('click', function() {
     document.getElementById('closedNotebook').style.display = 'none';
-    this.style.display = 'none'; // Скрываем кнопку "Open Notebook"
-    document.getElementById('openNotebook').style.display = 'block';
-    document.getElementById('buttons').style.display = 'block';
+    this.style.display = 'none';
+    document.getElementById('openNotebook').style.display = 'flex';
 
-    let index = 0;
-    const itemsColumn1 = document.querySelectorAll('#column1 p');
-    const itemsColumn2 = document.querySelectorAll('#column2 p');
-    const items = [...itemsColumn1, ...itemsColumn2];  // Объединяем оба массива
+    // Зачеркивание классов через 5 секунд
+    setTimeout(function() {
+        let classes1 = document.querySelectorAll('#column1 .class');
+        let classes2 = document.querySelectorAll('#column2 .class');
+        let totalClasses = [...classes1, ...classes2]; // Объединяем классы из обоих колонок
+        let i = 0;
 
-    const interval = setInterval(() => {
-        if (index < items.length) {
-            items[index].style.textDecoration = 'line-through'; // Зачеркиваем текст
-            index++;
-        } else {
-            clearInterval(interval); // Останавливаем интервал, когда все элементы обработаны
-        }
-    }, 500); // Интервал 500 мс (0,5 секунды)
-};
+        let interval = setInterval(function() {
+            if (i < totalClasses.length) {
+                totalClasses[i].classList.add('strike-through');
+                i++;
+            } else {
+                clearInterval(interval);
+            }
+        }, 1000); // Зачеркивание каждую секунду
+    }, 5000);
+});
 
-document.getElementById('continueButton').onclick = function() {
-    const col2 = document.getElementById('column2');
-    const newItems = ['10 класс', '11 класс'];
-    newItems.forEach(item => {
-        const p = document.createElement('p');
-        p.textContent = item;
-        col2.appendChild(p);
+document.getElementById('continueButton').addEventListener('click', function() {
+    this.style.display = 'none';
+    document.getElementById('finishButton').style.display = 'none';
+
+    // Добавляем новые классы
+    let newClasses = ['10 класс', '11 класс'];
+    let column2 = document.getElementById('column2');
+
+    newClasses.forEach(function(className) {
+        let newClassElement = document.createElement('p');
+        newClassElement.className = 'class';
+        newClassElement.textContent = className;
+        column2.appendChild(newClassElement);
     });
-    hideButtons(); // Скрываем обе кнопки
-};
+});
 
-document.getElementById('finishButton').onclick = function() {
-    const col1 = document.getElementById('column1');
-    const col2 = document.getElementById('column2');
-    col1.innerHTML = '<p>1 курс</p><p>2 курс</p><p>3 курс</p><p>4 курс</p>';
-    col2.innerHTML = '';
-    hideButtons(); // Скрываем обе кнопки
-};
+document.getElementById('finishButton').addEventListener('click', function() {
+    this.style.display = 'none';
+    document.getElementById('continueButton').style.display = 'none';
+
+    // Заменяем классы
+    let column1 = document.getElementById('column1');
+    let column2 = document.getElementById('column2');
+
+    column1.innerHTML = '';
+    column2.innerHTML = '<p class="class">1 курс</p><p class="class">2 курс</p><p class="class">3 курс</p><p class="class">4 курс</p>';
+});
