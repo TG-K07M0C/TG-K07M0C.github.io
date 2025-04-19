@@ -29,6 +29,7 @@ body {
     display: inline-block;
     vertical-align: top;
     padding: 10px;
+    position: absolute;
 }
 
 button {

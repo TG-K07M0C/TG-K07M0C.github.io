@@ -19,7 +19,7 @@ document.getElementById('openButton').onclick = function() {
         } else {
             clearInterval(interval);
         }
-    }, 5000);
+    }, 1000);
 };
 
 document.getElementById('continueButton').onclick = function() {
