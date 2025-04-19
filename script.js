@@ -10,16 +10,18 @@ document.getElementById('openButton').onclick = function() {
     document.getElementById('buttons').style.display = 'block';
 
     let index = 0;
-    const items = document.querySelectorAll('#column1 p');
+    const itemsColumn1 = document.querySelectorAll('#column1 p');
+    const itemsColumn2 = document.querySelectorAll('#column2 p');
+    const items = [...itemsColumn1, ...itemsColumn2];  // Объединяем оба массива
 
     const interval = setInterval(() => {
         if (index < items.length) {
-            items[index].style.textDecoration = 'line-through';
+            items[index].style.textDecoration = 'line-through'; // Зачеркиваем текст
             index++;
         } else {
-            clearInterval(interval);
+            clearInterval(interval); // Останавливаем интервал, когда все элементы обработаны
         }
-    }, 1000);
+    }, 500); // Интервал 500 мс (0,5 секунды)
 };
 
 document.getElementById('continueButton').onclick = function() {
