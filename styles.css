@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('https://i.pinimg.com/originals/ea/b1/7a/eab17a6593c7d18f591e56b4b97337f7.jpg');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#container {
+    text-align: center;
+}
+
+#notebook {
+    position: relative;
+}
+
+#closedNotebook {
+    width: 300px;
+}
+
+#openNotebook img {
+    width: 500px;
+}
+
+.column {
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: darkgreen;
+}
