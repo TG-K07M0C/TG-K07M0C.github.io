@@ -12,7 +12,7 @@ body {
     align-items: center;
     height: 100vh;
     flex-direction: column;
-    font-family: 'Mistral', sans-serif; /* Шрифт по умолчанию */
+    font-family: 'Mistral', sans-serif; /* Используем шрифт по умолчанию */
 }
 #container {
     text-align: center;
@@ -45,20 +45,20 @@ button:hover {
     margin-top: 20px;
 }
 #openNotebook img {
-    width: 500px; /* Фиксированная ширина для открытой тетради */
+    width: 400px; /* Фиксированная ширина для открытой тетради */
 }
 .column {
     position: absolute; /* Колонки будут накладываться на книгу */
     text-align: center;
     z-index: 2; /* Убедитесь, что они выше фона */
-    font-size: 16px; /* Статичный размер шрифта */
+    font-size: 32px; /* Статичный размер шрифта для ПК */
 }
 #column1 {
-    top: 10%;                      
+    top: 20%;                      
     left: 10%; /* Координаты слева */
 }
 #column2 {
-    top: 10%; 
+    top: 20%; 
     right: 10%; /* Координаты справа */
 }
 .class {
@@ -81,4 +81,17 @@ button:hover {
     left: 50%; 
     transform: translate(-50%, -50%); 
     z-index: 10; 
+}
+/* Медиазапросы для уменьшения шрифта на мобильных устройствах */
+@media (max-width: 600px) {
+    .column {
+        font-size: 20px; /* Уменьшение размера шрифта для мобильных устройств */
+    }
+    #message {
+        font-size: 18px; /* Уменьшаем размер сообщения на мобильных */
+    }
+    button {
+        padding: 8px 16px; /* Уменьшаем размер кнопок для мобильных */
+        font-size: 14px; /* Меняем размер шрифта кнопок для мобильных */
+    }
 }
