@@ -51,7 +51,7 @@ button:hover {
     position: absolute; /* Колонки будут накладываться на книгу */
     text-align: center;
     z-index: 2; /* Убедитесь, что они выше фона */
-    font-size: 24px; /* Статичный размер шрифта */
+    font-size: 16px; /* Статичный размер шрифта */
 }
 #column1 {
     top: 10%;                      
