@@ -46,8 +46,8 @@ button:hover {
 }
 #openNotebook img {
     position: relative; 
-    width: 50%; /* Уменьшаем ширину до 80% */
-    max-width: 500px; /* Максимальная ширина для больших экранов */
+    width: 60%; /* Уменьшаем ширину до 80% */
+    max-width: 300px; /* Максимальная ширина для больших экранов */
 }
 .column {
     position: absolute; 
