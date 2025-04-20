@@ -75,7 +75,7 @@ function addNewClasses(classes, columnId) {
     }, 1000); // Добавление классов каждую секунду
 }
 function removeClasses() {
-    const classesToRemove = [...document.querySelectorAll('#column1 .class, #column2 .class')].reverse(); // Удаление от 9 до 1 класса
+    const classesToRemove = [...document.querySelectorAll('#column1 .class, #column2 .class')]; // Все классы для удаления
     let index = 0;
     const removeClassesInterval = setInterval(function() {
         if (index < classesToRemove.length) {
@@ -84,7 +84,7 @@ function removeClasses() {
         } else {
             clearInterval(removeClassesInterval);
             // После удаления всех классов, добавляем новые курсы через 1 секунду
-            setTimeout(addNewCourses, 1000);
+            setTimeout(addNewCourses, 1000); // Заменяем на "1 курс", "2 курс" и т.д.
         }
     }, 1000); // Удаление классов каждую секунду
 }
