@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Mistral';
-    src: url('fonts/Mistral-Regular.ttf') format('truetype'); /* Укажите правильный путь к шрифту */
+    src: url('fonts/Mistral-Regular.ttf') format('truetype');
 }
 body {
     margin: 0;
@@ -12,7 +12,7 @@ body {
     align-items: center;
     height: 100vh;
     flex-direction: column;
-    font-family: Mistral, sans-serif; /* Шрифт по умолчанию */
+    font-family: 'Mistral', sans-serif; /* Используем шрифт */
 }
 #container {
     text-align: center;
@@ -22,7 +22,7 @@ body {
     margin-bottom: 20px;
 }
 #closedNotebook {
-    width: 300px; /* Фиксированная ширина тетради */
+    width: 300px; /* Фиксированная ширина для десктопов */
 }
 button {
     margin-top: 10px;
@@ -32,7 +32,7 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 16px; /* Статический размер шрифта */
 }
 button:hover {
     background-color: darkgreen;
@@ -45,28 +45,28 @@ button:hover {
     margin-top: 20px;
 }
 #openNotebook img {
-    position: relative; /* Убедитесь, что это изображение находится на своем месте */
-    width: 80%; /* Устанавливаем ширину в зависимости от ширины окна */
+    position: relative; 
+    width: 80%; /* Уменьшаем ширину до 80% */
     max-width: 400px; /* Максимальная ширина для больших экранов */
 }
 .column {
-    position: absolute;
+    position: absolute; 
     text-align: center;
     z-index: 2; 
-    font-size: 2vw; /* Динамический размер шрифта для адаптива */
+    font-size: 32px; /* Статичный размер шрифта */
 }
 #column1 {
-    top: 10%;                      
+    top: 20%;                      
     left: 10%; /* Координаты слева */
 }
 #column2 {
-    top: 10%; 
+    top: 20%; 
     right: 10%; /* Координаты справа */
 }
 .class {
     display: none; 
     opacity: 0; /* Появление с эффектом */
-    transition: opacity 0.5s ease; /* Плавный переход при появлении */
+    transition: opacity 0.5s ease; 
 }
 .class[style*="display: block;"] {
     opacity: 1; 
@@ -84,27 +84,22 @@ button:hover {
     transform: translate(-50%, -50%); 
     z-index: 10; 
 }
-/* Медиазапросы для адаптивного дизайна */
+/* Медиазапросы для адаптации под мобильные устройства */
 @media (max-width: 600px) {
     #closedNotebook {
-        width: 70%; /* Меняем ширину для мобильных устройств */
-        max-width: 200px; /* Максимальная ширина для маленьких экранов */
+        width: 70%; /* Меняем ширину тетради для мобильных */
+    }
+    #openNotebook img {
+        width: 90%; /* Полная ширина для открытой тетради на мобильных */
     }
     button {
         padding: 8px 16px; /* Уменьшаем размер кнопок для мобильных */
-        font-size: 14px; /* Меняем размер шрифта для мобильных */
+        font-size: 14px; /* Меняем размер шрифта кнопок для мобильных */
     }
     .column {
-        font-size: 5vw; /* Увеличиваем шрифты на мобильных */
+        font-size: 24px; /* Уменьшаем размер шрифта для колонок на мобильных */
     }
     #message {
         font-size: 20px; /* Меняем размер сообщения на мобильных */
     }
-}
-/* Стиль для надписей */
-.class { 
-    position: absolute;
-    top: 35%; /* Позиционируем немного выше центра открытки */
-    left: 50%;
-    transform: translateX(-50%); /* Центрируем по горизонтали */
 }
