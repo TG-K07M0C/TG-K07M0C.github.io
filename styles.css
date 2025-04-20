@@ -22,7 +22,7 @@ body {
     margin-bottom: 20px;
 }
 #closedNotebook {
-    width: 300px; /* Фиксированная ширина для десктопов */
+    width: 400px; /* Фиксированная ширина для десктопов */
 }
 button {
     margin-top: 10px;
@@ -47,7 +47,7 @@ button:hover {
 #openNotebook img {
     position: relative; 
     width: 80%; /* Уменьшаем ширину до 80% */
-    max-width: 300px; /* Максимальная ширина для больших экранов */
+    max-width: 500px; /* Максимальная ширина для больших экранов */
 }
 .column {
     position: absolute; 
