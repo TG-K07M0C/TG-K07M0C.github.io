@@ -47,7 +47,7 @@ button:hover {
 #openNotebook img {
     position: relative; 
     width: 80%; /* Уменьшаем ширину до 80% */
-    max-width: 400px; /* Максимальная ширина для больших экранов */
+    max-width: 300px; /* Максимальная ширина для больших экранов */
 }
 .column {
     position: absolute; 
@@ -56,11 +56,11 @@ button:hover {
     font-size: 32px; /* Статичный размер шрифта */
 }
 #column1 {
-    top: 20%;                      
+    top: 10%;                      
     left: 10%; /* Координаты слева */
 }
 #column2 {
-    top: 20%; 
+    top: 10%; 
     right: 10%; /* Координаты справа */
 }
 .class {
@@ -83,23 +83,4 @@ button:hover {
     left: 50%; 
     transform: translate(-50%, -50%); 
     z-index: 10; 
-}
-/* Медиазапросы для адаптации под мобильные устройства */
-@media (max-width: 600px) {
-    #closedNotebook {
-        width: 70%; /* Меняем ширину тетради для мобильных */
-    }
-    #openNotebook img {
-        width: 90%; /* Полная ширина для открытой тетради на мобильных */
-    }
-    button {
-        padding: 8px 16px; /* Уменьшаем размер кнопок для мобильных */
-        font-size: 14px; /* Меняем размер шрифта кнопок для мобильных */
-    }
-    .column {
-        font-size: 24px; /* Уменьшаем размер шрифта для колонок на мобильных */
-    }
-    #message {
-        font-size: 20px; /* Меняем размер сообщения на мобильных */
-    }
 }
