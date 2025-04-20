@@ -45,20 +45,20 @@ button:hover {
     margin-top: 20px;
 }
 #openNotebook img {
-    width: 400px; /* Фиксированная ширина для открытой тетради */
+    width: 500px; /* Фиксированная ширина для открытой тетради */
 }
 .column {
     position: absolute; /* Колонки будут накладываться на книгу */
     text-align: center;
     z-index: 2; /* Убедитесь, что они выше фона */
-    font-size: 32px; /* Статичный размер шрифта */
+    font-size: 24px; /* Статичный размер шрифта */
 }
 #column1 {
-    top: 20%;                      
+    top: 10%;                      
     left: 10%; /* Координаты слева */
 }
 #column2 {
-    top: 20%; 
+    top: 10%; 
     right: 10%; /* Координаты справа */
 }
 .class {
