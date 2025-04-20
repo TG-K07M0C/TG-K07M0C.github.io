@@ -12,14 +12,14 @@ body {
     align-items: center;
     height: 100vh;
     flex-direction: column;
-    font-family: 'Mistral', sans-serif; /* Шрифт по умолчанию */
+    font-family: 'Mistral', sans-serif; /* Используем шрифт по умолчанию */
 }
 #container {
     text-align: center;
 }
 #notebook-container {
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* Отступ между тетрадью и кнопками */
 }
 #closedNotebook {
     width: 300px; /* Фиксированная ширина для закрытой тетради */
@@ -54,11 +54,11 @@ button:hover {
     font-size: 32px; /* Статичный размер шрифта */
 }
 #column1 {
-    top: 10%;                      
+    top: 20%;                      
     left: 10%; /* Координаты слева */
 }
 #column2 {
-    top: 10%; 
+    top: 20%; 
     right: 10%; /* Координаты справа */
 }
 .class {
@@ -80,5 +80,5 @@ button:hover {
     top: 50%; 
     left: 50%; 
     transform: translate(-50%, -50%); 
-    z-index: 10; 
+    z-index: 10;
 }

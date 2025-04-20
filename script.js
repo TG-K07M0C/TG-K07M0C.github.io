@@ -61,6 +61,7 @@ function addNewClasses(classes, columnId) {
             newClassElement.style.display = 'block';
             newClassElement.style.opacity = '0';
             column.appendChild(newClassElement);
+            
             // Плавное появление
             setTimeout(() => { newClassElement.style.opacity = '1'; }, 100);
             index++;
@@ -75,7 +76,7 @@ function addNewClasses(classes, columnId) {
     }, 1000); // Добавление классов каждую секунду
 }
 function removeClasses() {
-    const classesToRemove = [...document.querySelectorAll('#column1 .class, #column2 .class')]; // Все классы для удаления
+    const classesToRemove = [...document.querySelectorAll('#column1 .class, #column2 .class')].reverse(); // Удаление от 9 до 1 класса
     let index = 0;
     const removeClassesInterval = setInterval(function() {
         if (index < classesToRemove.length) {
