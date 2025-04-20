@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Mistral';
-    src: url('fonts/Mistral-Regular.ttf') format('truetype');
+    src: url('fonts/Mistral-Regular.ttf') format('truetype'); /* Укажите правильный путь к шрифту */
 }
 body {
     margin: 0;
@@ -10,8 +10,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     height: 100vh;
+    flex-direction: column;
     font-family: Mistral, sans-serif;
 }
 #container {
@@ -23,8 +23,8 @@ body {
     margin-bottom: 20px;
 }
 #closedNotebook {
-    width: 300px; /* Статическая ширина тетради */
-    max-width: 80vw; /* Максимальная ширина для мобильных */
+    width: 50%; /* Ширина тетради равна 50% от окна */
+    max-width: 300px; /* Максимальная ширина для больших экранов */
 }
 button {
     margin-top: 10px;
@@ -51,9 +51,9 @@ button:hover {
     max-width: 400px; /* Максимальная ширина для больших экранов */
 }
 .column {
-    position: absolute;
+    position: absolute; /* Колонки будут накладываться на книгу */
     text-align: center;
-    z-index: 2; 
+    z-index: 2; /* Убедитесь, что они выше фона */
     font-size: 32px; /* Статичный размер шрифта */
 }
 #column1 {
@@ -65,12 +65,12 @@ button:hover {
     right: 10%; /* Координаты справа */
 }
 .class {
-    display: none; 
+    display: none; /* Скрываем классы изначально */
     opacity: 0; /* Появление с эффектом */
-    transition: opacity 0.5s ease; 
+    transition: opacity 0.5s ease; /* Плавный переход при появлении */
 }
 .class[style*="display: block;"] {
-    opacity: 1; 
+    opacity: 1; /* Делая видимыми */
 }
 .strike-through {
     text-decoration: line-through; 
@@ -85,10 +85,13 @@ button:hover {
     transform: translate(-50%, -50%); 
     z-index: 10; 
 }
-/* Медиазапрос для мобильных устройств */
+/* Медиазапросы для адаптивного дизайна */
 @media (max-width: 600px) {
     #closedNotebook {
-        width: 80%; /* Устанавливаем ширину тетради для мобильных */
+        width: 70%; /* Меняем ширину для мобильных устройств */
+    }
+    #openNotebook img {
+        width: 100%; /* Полная ширина для открытой тетради на мобильных */
     }
     button {
         padding: 8px 16px; /* Уменьшаем размер кнопок для мобильных */
@@ -101,4 +104,3 @@ button:hover {
         font-size: 20px; /* Меняем размер сообщения на мобильных */
     }
 }
-
