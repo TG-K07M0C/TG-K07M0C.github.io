@@ -12,18 +12,17 @@ body {
     align-items: center;
     height: 100vh;
     flex-direction: column;
-    font-family: 'Mistral', sans-serif; 
+    font-family: 'Mistral', sans-serif; /* Шрифт по умолчанию */
 }
 #container {
     text-align: center;
-    width: 90%; /* Устанавливаем ширину контейнера для адаптивности */
 }
 #notebook-container {
     position: relative;
     margin-bottom: 20px;
 }
 #closedNotebook {
-    width: 300px; /* Фиксированная ширина закрытой тетради */
+    width: 300px; /* Фиксированная ширина для закрытой тетради */
 }
 button {
     margin-top: 10px;
@@ -33,7 +32,7 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px; 
+    font-size: 16px; /* Статический размер шрифта */
 }
 button:hover {
     background-color: darkgreen;
@@ -46,39 +45,36 @@ button:hover {
     margin-top: 20px;
 }
 #openNotebook img {
-    position: relative;
-    width: 90%; /* Устанавливаем ширину до 90% от контейнера */
-    max-width: 600px; /* Максимальная ширина для больших экранов */
-    height: auto; /* Поддерживаем пропорции изображения */
+    width: 400px; /* Фиксированная ширина для открытой тетради */
 }
 .column {
-    position: absolute; 
+    position: absolute; /* Колонки будут накладываться на книгу */
     text-align: center;
-    z-index: 2; 
-    font-size: 32px; 
+    z-index: 2; /* Убедитесь, что они выше фона */
+    font-size: 32px; /* Статичный размер шрифта */
 }
 #column1 {
     top: 20%;                      
-    left: 10%; 
+    left: 10%; /* Координаты слева */
 }
 #column2 {
     top: 20%; 
-    right: 10%; 
+    right: 10%; /* Координаты справа */
 }
 .class {
-    display: none; 
-    opacity: 0; 
-    transition: opacity 0.5s ease; 
+    display: none; /* Скрываем классы изначально */
+    opacity: 0; /* Появление с эффектом */
+    transition: opacity 0.5s ease; /* Плавный переход при появлении */
 }
 .class[style*="display: block;"] {
-    opacity: 1; 
+    opacity: 1; /* Делая видимыми */
 }
 .strike-through {
     text-decoration: line-through; 
 }
 #message {
     display: none; 
-    font-size: 24px;
+    font-size: 24px; /* Статичный размер для сообщения */
     color: black;
     position: absolute; 
     top: 50%; 
