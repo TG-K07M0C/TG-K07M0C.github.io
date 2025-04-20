@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Mistral';
-    src: url('fonts/Mistral-Regular.ttf') format('truetype'); /* Убедитесь, что путь указан правильно */
+    src: url('fonts/Mistral-Regular.ttf') format('truetype'); /* Укажите правильный путь к шрифту */
 }
 body {
     margin: 0;
@@ -12,7 +12,7 @@ body {
     align-items: center;
     height: 100vh;
     flex-direction: column;
-    font-family: 'Mistral', sans-serif; /* Используем шрифт по умолчанию */
+    font-family: Mistral, sans-serif;
 }
 #container {
     text-align: center;
@@ -22,7 +22,7 @@ body {
     margin-bottom: 20px;
 }
 #closedNotebook {
-    width: 300px; /* Фиксированная ширина для закрытой тетради */
+    width: 300px; /* Статическая ширина тетради */
 }
 button {
     margin-top: 10px;
@@ -32,7 +32,7 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px; /* Статический размер шрифта */
+    font-size: 16px;
 }
 button:hover {
     background-color: darkgreen;
@@ -45,20 +45,22 @@ button:hover {
     margin-top: 20px;
 }
 #openNotebook img {
-    width: 400px; /* Фиксированная ширина для открытой тетради */
+    position: relative; /* Убедитесь, что это изображение находится на своем месте */
+    z-index: 1; /* Задаем z-index, чтобы фон был под текстом */
 }
 .column {
     position: absolute; /* Колонки будут накладываться на книгу */
     text-align: center;
     z-index: 2; /* Убедитесь, что они выше фона */
-    left: 50%; /* Центрируем по горизонтали */
-    transform: translateX(-50%); /* Сдвигаем влево на 50% самой ширины */
+    font-size: 32px; /* Статичный размер шрифта */
 }
 #column1 {
-    top: 30%; /* Позиционируем чуть выше центра открытой тетради */
+    top: 10%;                      
+    left: 20%; /* Координаты слева */
 }
 #column2 {
-    top: 30%; /* Позиционируем чуть выше центра открытой тетради */
+    top: 10%; 
+    right: 20%; /* Координаты справа */
 }
 .class {
     display: none; /* Скрываем классы изначально */
@@ -73,10 +75,10 @@ button:hover {
 }
 #message {
     display: none; 
-    font-size: 24px; /* Статичный размер для сообщения */
+    font-size: 32px;
     color: black;
     position: absolute; 
-    top: 50%; 
+    top: 35%; 
     left: 50%; 
     transform: translate(-50%, -50%); 
     z-index: 10; 

@@ -1,4 +1,4 @@
-document.getElementById('closedNotebook').addEventListener('click', function() {
+document.getElementById('closedNotebook').addEventListener('click', function () {
     this.style.display = 'none';
     document.getElementById('openNotebook').style.display = 'flex';
     // Показать классы через 1.5 секунды после открытия тетради
@@ -18,7 +18,6 @@ function showClasses() {
             setTimeout(strikeThroughClasses, 500); // Ожидаем 0,5 секунды для зачеркивания
         }
     };
-    
     showNextClass(); // Начинаем показ классов
 }
 function strikeThroughClasses() {
@@ -26,7 +25,7 @@ function strikeThroughClasses() {
     let classes2 = document.querySelectorAll('#column2 .class');
     let totalClasses = [...classes1, ...classes2];
     let i = 0;
-    let interval = setInterval(function() {
+    let interval = setInterval(function () {
         if (i < totalClasses.length) {
             totalClasses[i].classList.add('strike-through');
             i++;
@@ -38,22 +37,22 @@ function strikeThroughClasses() {
         }
     }, 1000);
 }
-document.getElementById('continueButton').addEventListener('click', function() {
+document.getElementById('continueButton').addEventListener('click', function () {
     this.style.display = 'none';
     document.getElementById('finishButton').style.display = 'none';
     // Добавляем надписи "10 класс" и "11 класс"
     addNewClasses(['10 класс', '11 класс'], 'column2');
 });
-document.getElementById('finishButton').addEventListener('click', function() {
+document.getElementById('finishButton').addEventListener('click', function () {
     this.style.display = 'none';
     document.getElementById('continueButton').style.display = 'none';
-    // Удаляем классы из column1 и column2
+    // Удаляем классы из column1 и column2 поочередно от 9 до 1 класса
     removeClasses();
 });
 function addNewClasses(classes, columnId) {
     const column = document.getElementById(columnId);
     let index = 0;
-    const addClassesInterval = setInterval(function() {
+    const addClassesInterval = setInterval(function () {
         if (index < classes.length) {
             const newClassElement = document.createElement('p');
             newClassElement.className = 'class';
@@ -68,14 +67,15 @@ function addNewClasses(classes, columnId) {
             clearInterval(addClassesInterval);
             // После добавления надписей, скрываем их через 1.5 секунды и показываем закрытую тетрадь
             setTimeout(() => {
-                column.style.display = 'none'; // Скрываем колонку
+                column.style.display = 'none';
                 showEndScreen();
             }, 1500);
         }
     }, 1000); // Добавление классов каждую секунду
 }
 function removeClasses() {
-    const classesToRemove = [...document.querySelectorAll('#column1 .class, #column2 .class')].reverse(); // Удаление от 9 до 1 класса
+    // Получаем все классы от 9 до 1 по порядку
+    const classesToRemove = [...document.querySelectorAll('#column1 .class, #column2 .class')].reverse();
     let index = 0;
     const removeClassesInterval = setInterval(function () {
         if (index < classesToRemove.length) {
