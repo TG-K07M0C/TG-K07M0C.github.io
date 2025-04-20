@@ -12,19 +12,17 @@ body {
     align-items: center;
     height: 100vh;
     flex-direction: column;
-    font-family: Mistral, sans-serif;
+    font-family: Mistral, sans-serif; /* Шрифт по умолчанию */
 }
 #container {
     text-align: center;
-    width: 90%; /* Устанавливаем ширину контейнера для адаптивности */
 }
 #notebook-container {
     position: relative;
     margin-bottom: 20px;
 }
 #closedNotebook {
-    width: 50%; /* Ширина тетради равна 50% от окна */
-    max-width: 300px; /* Максимальная ширина для больших экранов */
+    width: 300px; /* Фиксированная ширина тетради */
 }
 button {
     margin-top: 10px;
@@ -47,14 +45,15 @@ button:hover {
     margin-top: 20px;
 }
 #openNotebook img {
-    width: 60%; /* Устанавливаем ширину в зависимости от ширины окна */
+    position: relative; /* Убедитесь, что это изображение находится на своем месте */
+    width: 80%; /* Устанавливаем ширину в зависимости от ширины окна */
     max-width: 400px; /* Максимальная ширина для больших экранов */
 }
 .column {
-    position: absolute; /* Колонки будут накладываться на книгу */
+    position: absolute;
     text-align: center;
-    z-index: 2; /* Убедитесь, что они выше фона */
-    font-size: 24px;
+    z-index: 2; 
+    font-size: 2vw; /* Динамический размер шрифта для адаптива */
 }
 #column1 {
     top: 20%;                      
@@ -65,12 +64,12 @@ button:hover {
     right: 10%; /* Координаты справа */
 }
 .class {
-    display: none; /* Скрываем классы изначально */
+    display: none; 
     opacity: 0; /* Появление с эффектом */
     transition: opacity 0.5s ease; /* Плавный переход при появлении */
 }
 .class[style*="display: block;"] {
-    opacity: 1; /* Делая видимыми */
+    opacity: 1; 
 }
 .strike-through {
     text-decoration: line-through; 
@@ -89,18 +88,23 @@ button:hover {
 @media (max-width: 600px) {
     #closedNotebook {
         width: 70%; /* Меняем ширину для мобильных устройств */
-    }
-    #openNotebook img {
-        width: 100%; /* Полная ширина для открытой тетради на мобильных */
+        max-width: 200px; /* Максимальная ширина для маленьких экранов */
     }
     button {
         padding: 8px 16px; /* Уменьшаем размер кнопок для мобильных */
-        font-size: 14px; /* Меняем размер шрифта кнопок для мобильных */
+        font-size: 14px; /* Меняем размер шрифта для мобильных */
     }
     .column {
-        font-size: 24px; /* Уменьшаем размер шрифта для колонок на мобильных */
+        font-size: 5vw; /* Увеличиваем шрифты на мобильных */
     }
     #message {
         font-size: 20px; /* Меняем размер сообщения на мобильных */
     }
+}
+/* Стиль для надписей */
+.class { 
+    position: absolute;
+    top: 35%; /* Позиционируем немного выше центра открытки */
+    left: 50%;
+    transform: translateX(-50%); /* Центрируем по горизонтали */
 }

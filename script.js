@@ -18,7 +18,6 @@ function showClasses() {
             setTimeout(strikeThroughClasses, 500); // Ожидаем 0,5 секунды для зачеркивания
         }
     };
-    
     showNextClass(); // Начинаем показ классов
 }
 function strikeThroughClasses() {
@@ -75,16 +74,16 @@ function addNewClasses(classes, columnId) {
     }, 1000); // Добавление классов каждую секунду
 }
 function removeClasses() {
-    const classesToRemove = [...document.querySelectorAll('#column1 .class, #column2 .class')];
+    const classesToRemove = [...document.querySelectorAll('#column1 .class, #column2 .class')].reverse(); // Удаление от 9 до 1 класса
     let index = 0;
-    const removeClassesInterval = setInterval(function() {
+    const removeClassesInterval = setInterval(function () {
         if (index < classesToRemove.length) {
             classesToRemove[index].style.display = 'none'; // Прячем элементы
             index++;
         } else {
             clearInterval(removeClassesInterval);
             // После удаления всех классов, добавляем новые курсы через 1 секунду
-            setTimeout(addNewCourses, 1000); // Заменяем на "1 курс", "2 курс" и т.д.
+            setTimeout(addNewCourses, 1000);
         }
     }, 1000); // Удаление классов каждую секунду
 }
@@ -93,7 +92,7 @@ function addNewCourses() {
     const column1 = document.getElementById('column1');
     const newClasses = ['1 курс', '2 курс', '3 курс', '4 курс'];
     let index = 0;
-    const addClassesInterval = setInterval(function() {
+    const addClassesInterval = setInterval(function () {
         if (index < newClasses.length) {
             const newClassElement = document.createElement('p');
             newClassElement.className = 'class';
@@ -101,7 +100,6 @@ function addNewCourses() {
             newClassElement.style.display = 'block';
             newClassElement.style.opacity = '0';
             column1.appendChild(newClassElement);
-            
             // Плавное появления
             setTimeout(() => { newClassElement.style.opacity = '1'; }, 100);
             index++;
