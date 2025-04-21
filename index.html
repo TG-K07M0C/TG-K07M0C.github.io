@@ -3,37 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Школьная история</title>
+    <title>Блокнот с Тремя Обложками</title>
+    <link rel="stylesheet" href="style.css"> <!-- Подключаем CSS -->
 </head>
 <body>
-    <div id="container">
-        <div id="notebook-container">
-            <img id="closedNotebook" src="https://avatars.mds.yandex.net/get-mpic/1886132/img_id7818808507199209422.jpeg/orig" alt="Closed Notebook">
-        </div>
-        <div id="openNotebook" style="display:none;">
-            <img src="https://img.freepik.com/premium-photo/texture-open-school-notebook-cell_116441-3084.jpg?semt=ais_hybrid" alt="Open Notebook">
-            <div id="columns">
-                <div class="column" id="column1">
-                    <p class="class" style="display: none;">1 класс</p>
-                    <p class="class" style="display: none;">2 класс</p>
-                    <p class="class" style="display: none;">3 класс</p>
-                    <p class="class" style="display: none;">4 класс</p>
-                    <p class="class" style="display: none;">5 класс</p>
+    <div class="notebook" onclick="toggleNotebook()">
+        <div class="cover cover-purple"></div>
+        <div class="cover cover-yellow"></div>
+        <div class="cover cover-fixed"></div>
+        <div class="pages">
+            <div class="page">
+                <div class="content"></div>
+                <div class="buttons" style="display: none;">
+                    <button id="continue">Продолжить школьную историю</button>
+                    <button id="finish">Завершить школьную историю</button>
                 </div>
-                <div class="column" id="column2">
-                    <p class="class" style="display: none;">6 класс</p>
-                    <p class="class" style="display: none;">7 класс</p>
-                    <p class="class" style="display: none;">8 класс</p>
-                    <p class="class" style="display: none;">9 класс</p>
-                </div>
+                <div class="final-message" style="display: none;">Удачи!</div>
             </div>
-            
-            <button id="continueButton" style="display: none;">Продолжить школьную историю</button>
-            <button id="finishButton" style="display: none;">Завершить школьную историю</button>
         </div>
     </div>
-    <div id="message" style="display:none;">Удачи!</div>
-    <script src="script.js"></script>
+    <script src="script.js"></script> <!-- Подключаем JavaScript -->
 </body>
 </html>

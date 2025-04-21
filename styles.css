@@ -1,85 +1,100 @@
-@font-face {
-    font-family: 'Mistral';
-    src: url('fonts/Mistral-Regular.ttf') format('truetype'); /* Укажите правильный путь к шрифту */
-}
 body {
-    margin: 0;
-    padding: 0;
-    background-image: url('https://i.pinimg.com/originals/ea/b1/7a/eab17a6593c7d18f591e56b4b97337f7.jpg');
-    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    flex-direction: column;
-    font-family: Mistral, sans-serif;
+    background: url('https://i.pinimg.com/originals/ea/b1/7a/eab17a6593c7d18f591e56b4b97337f7.jpg') no-repeat center center fixed;
+    background-size: cover;
 }
-#container {
-    text-align: center;
-}
-#notebook-container {
+.notebook {
+    width: 200px;
+    height: 300px;
     position: relative;
-    margin-bottom: 20px;
+    cursor: pointer;
+    perspective: 1000px;
 }
-#closedNotebook {
-    width: 300px; /* Статическая ширина тетради */
+.cover {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #aaa;
+    border-radius: 5px;
+    transition: transform 0.6s ease;
+    transform-origin: left;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+}
+.cover-yellow {
+    background: #02b811;
+}
+.cover-purple {
+    background: #f6f4f7;
+    transform: rotateY(0deg);
+    z-index: 2;
+}
+.cover-fixed {
+    background: #f1f1f1;
+    z-index: 1;
+}
+.pages {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+.page {
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-radius: 5px;
+    transition: transform 0.6s ease;
+    transform-origin: left;
+}
+.notebook.open .cover-yellow {
+    transform: rotateY(-180deg);
+}
+.notebook.open .cover-purple {
+    transform: rotateY(-180deg);
+}
+.notebook.open .page {
+    transform: rotateY(0deg);
+}
+.content {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+}
+.content div {
+    width: 45%;
+}
+.content div span {
+    display: block;
+    transition: text-decoration 0.5s;
+}
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
 }
 button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: green;
+    background-color: #4CAF50; /* Зеленый */
     color: white;
+    padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
 }
 button:hover {
-    background-color: darkgreen;
+    background-color: #45a049;
 }
-#openNotebook {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.final-message {
     margin-top: 20px;
-}
-#openNotebook img {
-    position: relative; /* Убедитесь, что это изображение находится на своем месте */
-    z-index: 1; /* Задаем z-index, чтобы фон был под текстом */
-}
-.column {
-    position: absolute; /* Колонки будут накладываться на книгу */
-    text-align: center;
-    z-index: 2; /* Убедитесь, что они выше фона */
-    font-size: 32px; /* Статичный размер шрифта */
-}
-#column1 {
-    top: 10%;                      
-    left: 20%; /* Координаты слева */
-}
-#column2 {
-    top: 10%; 
-    right: 20%; /* Координаты справа */
-}
-.class {
-    display: none; /* Скрываем классы изначально */
-    opacity: 0; /* Появление с эффектом */
-    transition: opacity 0.5s ease; /* Плавный переход при появлении */
-}
-.class[style*="display: block;"] {
-    opacity: 1; /* Делая видимыми */
-}
-.strike-through {
-    text-decoration: line-through; 
-}
-#message {
-    display: none; 
-    font-size: 32px;
-    color: black;
-    position: absolute; 
-    top: 35%; 
-    left: 50%; 
-    transform: translate(-50%, -50%); 
-    z-index: 10; 
+    font-size: 24px;
+    color: #4CAF50;
 }
